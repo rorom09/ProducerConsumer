@@ -1,3 +1,4 @@
+package solutionBaseeSemaphores;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -25,17 +26,13 @@ public class TestProdCons
     int producerMin = Integer.parseInt( properties.getProperty( "minProd" ) );
     int producerMax = Integer.parseInt( properties.getProperty( "maxProd" ) );
 
-    // clamp
-    if( producerNum < producerMin ) producerNum = producerMin;
-    if( producerNum > producerMax ) producerNum = producerMax;
-
     ProdConsBuffer buffer   = new ProdConsBuffer( bufferSize );
     Producer[]     producer = new Producer[ producerNum ];
     Consumer[]     consumer = new Consumer[ consumerNum ];
 
     for ( int i = 0; i < producerNum; i++ )
     {
-      producer[ i ] = new Producer( "[P" + i + "]", buffer, produceTime );
+      producer[ i ] = new Producer( "[P" + i + "]", buffer, produceTime, producerMin, producerMax);
     }
 
     for ( int i = 0; i < consumerNum; i++ )

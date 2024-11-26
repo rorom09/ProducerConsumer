@@ -1,3 +1,4 @@
+package solutionDirecte;
 public interface IProdConsBuffer
 {
   /**
