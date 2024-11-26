@@ -1,4 +1,5 @@
 package solutionBaseeSemaphores;
+
 import java.util.UUID;
 
 public class Message
@@ -16,7 +17,7 @@ public class Message
     return m_text;
   }
 
-  public static Message getRandom(int min ,int max)
+  public static Message getRandom()
   {
     String uuid = UUID.randomUUID().toString();
     return new Message( uuid.replace( "-", "" ) );
